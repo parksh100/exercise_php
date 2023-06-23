@@ -13,6 +13,8 @@ $js_array = ['js/member_input.js'];
 
 $g_title = "회원가입";
 
+$menu_code = 'member';
+
 include "header.php";
 
 
@@ -45,8 +47,8 @@ include "header.php";
         </div>
         <div class="d-flex gap-2 align-items-end mt-3 justify-content-between">
             <div class="flex-grow-1">
-                <label for="f_password1" class="form-label">비밀번호</label>
-                <input type="password" name="password1" class="form-control" id="f_password1" placeholder="비밀번호를 입력하세요">
+                <label for="f_password" class="form-label">비밀번호</label>
+                <input type="password" name="password" class="form-control" id="f_password" placeholder="비밀번호를 입력하세요">
             </div>
             <div class="flex-grow-1">
                 <label for="f_password2" class="form-label">비밀번호 확인</label>

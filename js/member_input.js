@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (data.result == "success") {
           alert("사용 가능한 아이디입니다.");
           document.input_form.id_chk.value = 1;
-          f_password1.focus();
+          f_name.focus();
         } else if (data.result == "fail") {
           document.input_form.id_chk.value = 0;
           alert("이미 사용중인 아이디입니다.");
@@ -78,6 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (data.result == "empty_email") {
           alert("이메일을 입력해주세요.");
           f_email.focus();
+        } else if (data.result == "email_format_wrong") {
+          alert("이메일 형식이 잘못되었습니다.");
+          f_email.value = "";
+          f_email.focus();
         }
       }
     };
@@ -106,9 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // 비밀번호 체크
-    if (f.password1.value == "") {
+    if (f.password.value == "") {
       alert("비밀번호를 입력해주세요.");
-      f.password1.focus();
+      f.password.focus();
       return false;
     }
     if (f.password2.value == "") {
@@ -117,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return false;
     }
     // 비밀번호 일치 여부 체크
-    if (f.password1.value != f.password2.value) {
+    if (f.password.value != f.password2.value) {
       alert("비밀번호가 일치하지 않습니다.");
       f.password2.value = "";
       f.password2.focus();
@@ -211,6 +215,9 @@ document.addEventListener("DOMContentLoaded", function () {
     reader.readAsDataURL(e.target.files[0]);
 
     reader.onload = function (event) {
+      // const img = document.createElement("img");
+      // img.setAttribute("src", event.target.result);
+
       const f_preview = document.querySelector("#f_preview");
       f_preview.setAttribute("src", event.target.result);
     };
